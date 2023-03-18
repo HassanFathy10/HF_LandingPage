@@ -1,0 +1,454 @@
+/*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+
+
+/* ---- Base Rules ---- */
+/* I put many changes here and some modifications  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+} 
+
+body {
+    background: rgb(136,203,171);
+    background: linear-gradient(0deg, rgba(87, 15, 170, 0.76) 0%, rgba(0,13,60,1) 100%);
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    color: #000;
+    color: #fff;
+}
+
+/* Typeography General*/
+h1 {
+    font-family: 'Fira Sans', sans-serif;
+    margin: 2em 1rem;
+    color:#cc1;
+}
+span{
+    font-size: 0.5em;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: rgb(232, 235, 238);
+}
+
+@media only screen and (min-width: 35em){
+    header {
+            padding: 12px 20px;
+        }
+        .li a {
+            padding-left: 10px;
+        }
+    h1 {
+        font-size: 4em;
+        margin: 2em 4rem 1em;
+    }
+}
+
+h2 {
+    border-bottom: 1px solid #cc1;
+    font-family: 'Oxygen', Sans-Serif;
+    font-size: 3em;
+    color:rgb(213, 228, 6);
+}
+
+p {
+    line-height: 1.6em;
+    color: #eee;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.line{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #928b28;
+}
+
+/*media*/
+
+
+@media (max-width:1100px){
+    .hamburger{
+        display: block;
+        float: right;
+        padding: 20px;
+    }
+    .hamburger.active .line:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .line:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .line:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    #navbar__list{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        background-color: rgba(114, 106, 106, 0.185);
+        backdrop-filter: blur(7px);
+        transition: 0.2s;
+    }
+    li{
+        margin: 16px 0;
+    }
+    #navbar__list.active{
+        left: 0;
+    }
+}
+
+/* ---- Layout Rules ---- */
+main {
+    margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+    min-height: 40vh;
+    padding-top: 3em;
+}
+
+section {
+    position: relative;
+    min-height: 80vh;
+    border-radius: 50px;
+    transition: ease 0.3s all;
+}
+
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles*/
+.navbar__menu ul {
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    display: flex;
+}
+
+.navbar__menu{
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    min-height: 70px;
+    padding: 0px 20px ;
+}
+
+
+.navbar__menu .menu__link {
+    text-decoration: none;
+    color: rgb(187, 46, 206);
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 30px;
+    margin: 0.5em;
+    padding: 1.2em;
+    display: block;
+}
+
+
+.navbar__menu .menu__link:hover {
+    background: #1210a5;
+    color: #fff;
+    transition: ease 0.3s all;
+    border-radius: 50px;
+}
+/**add here style class active_link*/
+.navbar__menu .active_link {
+    background-color: #cc1;
+    border-radius: 50px;
+}
+/* Header Styles */
+.page__header {
+    background: rgba(83, 71, 71, 0.425);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 0px 50px ;
+    letter-spacing: 0.5px;
+}
+
+.hf{
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color:rgb(206, 18, 223);
+    padding-left: -10px;
+}
+
+/* Footer Styles */
+.page__footer {
+    background-color: black;
+    padding: 2em;
+    width: 100%;
+}
+
+.page__footer p{
+    color: #821ba1;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.landing__container {
+    padding: 1em;
+    text-align: left;
+}
+
+@media only screen and (min-width: 35em){
+    .landing__container {
+        max-width: 50em;
+        padding: 4em;
+    }
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: left; 
+}
+
+/* *button style*/
+button{ 
+    background-color: #cc1;
+    border: none;
+    color: rgb(148, 41, 148);
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px; 
+    border-radius: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    cursor: pointer;
+} 
+
+button:hover{
+    color: #eee;
+}
+
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+section:nth-of-type(odd) .landing__container::before {
+    content: '';
+    background: linear-gradient(0deg, rgba(14, 53, 226, 0.658) 0%, rgba(233, 14, 124, 0.534) 100%);
+    position: absolute;
+    z-index: -5;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    content: '';
+    background: rgb(241, 219, 17);
+    background: linear-gradient(0deg, rgba(14, 53, 226, 0.658) 0%, rgba(233, 14, 124, 0.534) 100%);
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+    content: '';
+    background: rgb(213, 228, 6);
+    background: linear-gradient(0deg, rgba(14, 53, 226, 0.658) 0%, rgba(233, 14, 124, 0.534) 100%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(14, 53, 226, 0.658) 0%, rgba(233, 14, 124, 0.534) 100%);
+    position: absolute;
+    right: 20vw;
+    bottom: -5em;
+    z-index: -5;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.your-active-class {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(185, 19, 172, 0.801) 0%, rgba(113, 17, 192, 0.315) 100%);
+}
+section.your-active-class:hover{
+    transition: all 0.3s ease;
+}
+
+section.your-active-class .landing__container::before {
+    opacity: 1;
+    animation: rotate 2s linear 0s infinite forwards;
+}
+
+section.your-active-class .landing__container::after {
+    opacity: 1;
+    animation: rotate 2s linear 0s infinite forwards reverse;
+}
+
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+	from {
+	transform: rotate(0deg)
+	translate(-1em)
+	rotate(0deg);
+	}
+	to {
+	transform: rotate(360deg)
+	translate(-1em) 
+	
+    rotate(-360deg);
+	}
+}
+/**media query*/
+@media(max-width:1024px) {
+    header {
+        padding: 12px 20px;
+    }
+    .navbar__menu a {
+        padding-left: 10px;
+    }
+    section {
+        padding: 80px 20px;
+        }
+    body{
+        font-size: large;
+    }
+    h1{
+        font-size: 5em;
+    }
+}
+@media(max-width:1366px) {
+    body {
+        font-size: larger;
+    }
+}
+@media(max-width:768px) {
+    ul{
+    font-size: small;
+    }
+    body {
+        font-size: 1em;
+    }
+    h1 {
+        font-size: 3.5em;
+    }
+}
+
+@media(max-width:425px) {
+    ul {
+    font-size: 1em;
+    }
+    
+    .wordmark_logo {
+    height: 20px;
+    width: 20px;
+    display: block;
+    }
+    body {
+        font-size: 0.8em;
+    }
+    h1 {
+        font-size: 4em;
+    }
+}
+
+@media(max-width:390px) {
+    ul {
+        font-size: 0.9em;
+    }
+    body {
+        font-size: 12px;
+    }
+    h1 {
+        font-size: 4em;
+    }
+}
+
+@media(max-width:375px) {
+    ul{
+    font-size: 0.9em;
+    }
+    body {
+        font-size: 12px;
+    } 
+    h1 {
+        font-size: 4em;
+    }
+}
+
+@media(max-width:320px) {
+    ul{
+        font-size: 0.7em;
+        padding-left: 10px;
+    }
+    body {
+        font-size: 12px;
+    }
+    h1 {
+        font-size: 3em;
+    }
+}
+
+@media(max-width:280px) {
+    ul {
+        font-size: 0.7em;
+        padding-left: 10px;
+    }
+    body {
+        font-size: 0.6em;
+    }
+    h1 {
+        font-size: 3em;
+    }
+}
