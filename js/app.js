@@ -86,7 +86,7 @@ unOrderListId.appendChild(fragment);
 // Set sections as active
 
 // I add here active_link to highlight anchortag when i scroll to the section position
-listOfLink = document.querySelectorAll("a.menu__link");
+const listOfLink = document.querySelectorAll("a.menu__link");
 window.addEventListener("scroll", function (event) {
         listOfItems.forEach(function (section) {
             if (section.getBoundingClientRect().top >= -400 && section.getBoundingClientRect().top <= 250) {
