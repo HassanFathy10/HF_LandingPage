@@ -233,7 +233,7 @@ section:nth-of-type(even) .landing__container {
     text-align: left; 
 }
 
-/* *button style*/
+/* button style*/
 button{ 
     background-color: #cc1;
     border: none;
